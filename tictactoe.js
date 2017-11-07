@@ -21,10 +21,14 @@ class Game {
     console.log(this.board.board[1]);
     console.log(this.board.board[2]);
   }
-  check() {
-    // a function to check if the game is won
-    return false;
+
+  checkWin(char) {
+    //checks for winning row
+    if (this.board.board[0][0] === char && this.board.board[0][1] === char && this.board.board[0][2] === char) {
+      this.won = true;
+    }
   }
+
   setPlace(i, j, piece) {
     this.board.board[i][j] = piece;
   }
@@ -41,6 +45,7 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
     prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
       game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
       game.showBoard();
+      game.checkWin('X');
       if (game.won) {
         console.log(game.player1 + ' wins');
         process.exit();
@@ -49,15 +54,16 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
       prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
         game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
         game.showBoard();
+        game.checkWin('0');
         if (game.won) {
           console.log(game.player1 + ' wins');
           process.exit();
         }    
-
         console.log(game.player1 + ' moves');
           prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
             game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
             game.showBoard();
+            game.checkWin('X');
             if (game.won) {
               console.log(game.player1 + ' wins');
               process.exit();
@@ -66,15 +72,16 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
             prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
               game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
               game.showBoard();
+              game.checkWin('0');
               if (game.won) {
-                console.log(game.player1 + ' wins');
+                console.log(game.player2 + ' wins');
                 process.exit();
               }    
-
               console.log(game.player1 + ' moves');
                 prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
                   game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
                   game.showBoard();
+                  game.checkWin('X');
                   if (game.won) {
                     console.log(game.player1 + ' wins');
                     process.exit();
@@ -83,15 +90,16 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
                   prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
                     game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
                     game.showBoard();
+                    game.checkWin('O');
                     if (game.won) {
-                      console.log(game.player1 + ' wins');
+                      console.log(game.player2 + ' wins');
                       process.exit();
                     }    
-
                     console.log(game.player1 + ' moves');
                       prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
                         game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
                         game.showBoard();
+                        game.checkWin('X');
                         if (game.won) {
                           console.log(game.player1 + ' wins');
                           process.exit();
@@ -100,19 +108,22 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
                         prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
                           game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
                           game.showBoard();
+                          game.checkWin('0');
                           if (game.won) {
-                            console.log(game.player1 + ' wins');
+                            console.log(game.player2 + ' wins');
                             process.exit();
                           }    
                           console.log(game.player1 + ' moves');
-                          
                           prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
                             game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
                             game.showBoard();
+                            game.checkWin('X');
                             if (game.won) {
                               console.log(game.player1 + ' wins');
                               process.exit();
-                            }    
+                            } else {
+                              console.log('This game has no winner');
+                            }
                           });
                       });    
                     });      
