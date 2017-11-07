@@ -6,7 +6,6 @@ class Board {
     for (let i = 0; i < this.board.length; i++) {
       this.board[i] = new Array(3).fill(' ');
     }
-    console.log(this);
   }
 }
 
@@ -14,7 +13,7 @@ class Game {
   constructor() {
     this.board = new Board;
     prompt.start();
-    this.won = false;
+    this.won = true;
   }
 
   showBoard() {
@@ -32,20 +31,24 @@ class Game {
 }
 
 let game = new Game;
-game.setPlace(1, 1, 'x');
 
 prompt.start();
+
 prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => {
   game.player1 = result['Who will be player 1?'];
   game.player2 = result['Who will be player 2?'];
     console.log(game.player1 + ' moves');
     prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
       game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
-      game.showBoard();  
-    console.log(game.player2 + ' moves');
-    prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-      game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
       game.showBoard();
+      if (game.won) {
+        console.log(game.player1 + ' wins');
+        process.exit();
+      }
+      console.log(game.player2 + ' moves');
+      prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
+        game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+        game.showBoard();
     });
   });
 });
