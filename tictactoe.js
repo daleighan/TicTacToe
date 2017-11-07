@@ -24,6 +24,7 @@ class Game {
   }
   isWon() {
     // a function to check if the game is won
+    return true;
   }
   setPlace(i, j, piece) {
     this.board.board[i][j] = piece;
@@ -38,9 +39,19 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
   game.player1 = result['Who will be player 1?'];
   game.player2 = result['Who will be player 2?'];
   while(game.won === false) {
-    
     if(game.isWon()){
-
+      game.won = true;
     }
+    console.log('Player one moves');
+    prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
+      game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
+    });
+    if(game.isWon()){
+      game.won = true;
+    }
+    console.log('Player two moves');
+    prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
+      game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+    });
   }
 });
