@@ -53,8 +53,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
   game.player1 = result['Who will be player 1?'];
   game.player2 = result['Who will be player 2?'];
   console.log(game.player1 + ' moves');
-  prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
-    game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
+  prompt.get(['row', 'column'], (err, result) => {
+    game.setPlace(result['row'], result['column'], 'X');
     game.showBoard();
     game.checkWin('X');
     if (game.won) {
@@ -62,8 +62,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
       process.exit();
     }
     console.log(game.player2 + ' moves');
-    prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-      game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+    prompt.get(['row', 'column'], (err, result) =>  {
+      game.setPlace(result['row'], result['column'], '0');
       game.showBoard();
       game.checkWin('0');
       if (game.won) {
@@ -71,8 +71,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
         process.exit();
       }    
       console.log(game.player1 + ' moves');
-      prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
-        game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
+      prompt.get(['row', 'column'], (err, result) => {
+        game.setPlace(result['row'], result['column'], 'X');
         game.showBoard();
         game.checkWin('X');
         if (game.won) {
@@ -80,8 +80,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
           process.exit();
         }
         console.log(game.player2 + ' moves');
-        prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-          game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+        prompt.get(['row', 'column'], (err, result) =>  {
+          game.setPlace(result['row'], result['column'], '0');
           game.showBoard();
           game.checkWin('0');
           if (game.won) {
@@ -89,8 +89,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
             process.exit();
           }    
           console.log(game.player1 + ' moves');
-          prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
-            game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
+          prompt.get(['row', 'column'], (err, result) => {
+            game.setPlace(result['row'], result['column'], 'X');
             game.showBoard();
             game.checkWin('X');
             if (game.won) {
@@ -98,8 +98,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
               process.exit();
             }
             console.log(game.player2 + ' moves');
-            prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-              game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+            prompt.get(['row', 'column'], (err, result) =>  {
+              game.setPlace(result['row'], result['column'], '0');
               game.showBoard();
               game.checkWin('O');
               if (game.won) {
@@ -107,8 +107,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
                 process.exit();
               }    
               console.log(game.player1 + ' moves');
-              prompt.get(['x-coordinate', 'y-coordinate'], (err, result) => {
-                game.setPlace(result['x-coordinate'], result['y-coordinate'], 'X');
+              prompt.get(['row', 'column'], (err, result) => {
+                game.setPlace(result['row'], result['column'], 'X');
                 game.showBoard();
                 game.checkWin('X');
                 if (game.won) {
@@ -116,8 +116,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
                   process.exit();
                 }
                 console.log(game.player2 + ' moves');
-                prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-                  game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+                prompt.get(['row', 'column'], (err, result) =>  {
+                  game.setPlace(result['row'], result['column'], '0');
                   game.showBoard();
                   game.checkWin('0');
                   if (game.won) {
@@ -125,8 +125,8 @@ prompt.get(['Who will be player 1?', 'Who will be player 2?'], (err, result) => 
                     process.exit();
                   }    
                   console.log(game.player1 + ' moves');
-                  prompt.get(['x-coordinate', 'y-coordinate'], (err, result) =>  {
-                    game.setPlace(result['x-coordinate'], result['y-coordinate'], '0');
+                  prompt.get(['row', 'column'], (err, result) =>  {
+                    game.setPlace(result['row'], result['column'], '0');
                     game.showBoard();
                     game.checkWin('X');
                     if (game.won) {
