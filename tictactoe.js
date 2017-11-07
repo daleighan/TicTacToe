@@ -26,6 +26,20 @@ class Game {
     //checks for winning row
     if (this.board.board[0][0] === char && this.board.board[0][1] === char && this.board.board[0][2] === char) {
       this.won = true;
+    } else if (this.board.board[1][0] === char && this.board.board[1][1] === char && this.board.board[1][2] === char) {
+      this.won = true;
+    } else if (this.board.board[2][0] === char && this.board.board[2][1] === char && this.board.board[2][2] === char) {
+      this.won = true;
+    } else if (this.board.board[0][0] === char && this.board.board[1][0] === char && this.board.board[2][0] === char) {
+      this.won = true;
+    } else if (this.board.board[0][1] === char && this.board.board[1][1] === char && this.board.board[2][1] === char) {
+      this.won = true;
+    } else if (this.board.board[0][2] === char && this.board.board[1][2] === char && this.board.board[2][2] === char) {
+      this.won = true;
+    } else if (this.board.board[0][0] === char && this.board.board[1][1] === char && this.board.board[2][2] === char) {
+      this.won = true;
+    } else if (this.board.board[0][2] === char && this.board.board[1][1] === char && this.board.board[2][0] === char) {
+      this.won = true;
     }
   }
 
